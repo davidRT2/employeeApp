@@ -3,6 +3,7 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DivisionController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\NilaiController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -27,3 +28,6 @@ Route::prefix('employees')->middleware('custom.sanctum')->group(function () {
     Route::put('/{id}', [EmployeeController::class, 'update']);
     Route::delete('/{id}', [EmployeeController::class, 'destroy']);
 });
+
+Route::post('/nilaiRT/bulk-insert', [NilaiController::class, 'bulkInsert']);
+Route::get('/nilaiRT', [NilaiController::class, 'index']);
